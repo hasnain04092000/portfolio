@@ -1,0 +1,204 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hasnain</title>
+    <link rel="stylesheet" href="{% static 'asset/css/style.css' %}">
+    
+</head>
+
+<body>
+    <!--Header-->
+    <section id="header">
+        <div class="header container">
+            <div class="navbar">
+                <div class="brand">
+                    <a href="#hero">
+                        <h1><span>H</span>asnain <span>A</span>hmed</h1>
+                    </a>
+                </div>
+                <div class="nav-list">
+                    <div class="hamburger">
+                        <div class="bar"></div>
+                    </div>
+                    <ul>
+                        <li><a href="#hero" data-after="Home">Home</a></li>
+                        <li><a href="#services" data-after="Services">Services</a></li>
+                        <li><a href="#project" data-after="Project">Project</a></li>
+                        <li><a href="#about" data-after="About">About</a></li>
+                        <li><a href="#contact" data-after="Contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--End Header-->
+
+    <!-- Hero section-->
+    <section id="hero" style="background-image: url(media/{{wall.img}});">
+        <div class="hero container">
+            <h1> Hello,<span></span></h1>
+            <h1> My name is<span></span> </h1>
+            <h1>Hasnain.<span></span></h1>
+            <a href="#project" type="button" class="cta">Portfolio</a>
+        </div>
+    </section>
+    <!-- End Hero section-->
+
+    <!--Sevices section-->
+    <section id="services">
+
+        <div class="services container">
+            {% for servicetop in servicesTop %}
+
+            <div class="services-top">
+                <h1 class="section-title">Serv<span>i</span>ces</h1>
+                <p>{{servicetop.service_header}}</p>
+
+            </div>
+            {% endfor %}
+
+            <div class="services-bottom">
+                {% for service in services %}
+                <div class="services-item">
+                    <div class="icon">
+                        <img src="{{service.icon.url}}">
+                    </div>
+                    <h2> {{service.title}}</h2>
+                    <p> {{service.description}} </p>
+
+                </div>
+                {% endfor %}
+            </div>
+
+        </div>
+
+    </section>
+    <!-- End Sevices section-->
+
+    <!--Project-->
+    <section id="project">
+        <div class="project container">
+            <div class="project-header">
+                <h1 class="section-title"> Recent <span> Project</span></h1>
+            </div>
+            <div class="all-project">
+                {% for project in project %}
+                <div class="project-item">
+
+                    <div class="project-info">
+                        <h1>Project {{project.id}}</h1>
+                        <h2>{{project.title}}</h2>
+                        <p>{{project.description}}</p>
+
+                    </div>
+                    <div class="project-img">
+                        <img src="{{project.img.url}}">
+                    </div>
+
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    <!--End Project-->
+
+    <!--About me-->
+    {% for profile in profile %}
+    <section id="about">
+        <div class="about container">
+            <div class="col-left">
+                <div class="about-img">
+                    <img src="{{profile.img.url}}">
+                </div>
+            </div>
+            <div class="col-right">
+                <h1 class="section-title">
+                    About <span> Me</span>
+                </h1>
+                <h2>{{profile.job_title}}</h2>
+                <p>{{profile.description}} </p>
+                <a class="cta" href="#">Download Resume</a>
+            </div>
+        </div>
+    </section>
+    {% endfor %}
+    <!--End About me-->
+
+    <!--Contact-->
+    {% for contact in contact %}
+    <section id="contact">
+        <div class="contact container">
+            <div>
+                <h1 class="section-title"> Contact <span>info</span></h1>
+            </div>
+            <div class="contact-items">
+                <div class="contact-item">
+                    <div class="icon">
+                        <img src="{% static 'asset/img/telephone.png' %}">
+                    </div>
+                    <div class="contact-info">
+                        <h1> Phone </h1>
+                        <h2>{{contact.phone}}</h2>
+
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="icon">
+                        <img src="{% static 'asset/img/gmail.png' %}">
+                    </div>
+                    <div class="contact-info">
+                        <h1> Email </h1>
+                        <h2> {{contact.email}}</h2>
+
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="icon">
+                        <img src="{% static 'asset/img/map.png' %}">
+                    </div>
+                    <div class="contact-info">
+                        <h1> Address </h1>
+                        <h2> {{contact.address}}</h2>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    {% endfor %}
+    <!--End Contact-->
+
+    <!--Footer-->
+    <section id="footer">
+        <div class="footer container">
+            <div class="brand">
+                <h1><span>H</span>asnain <span>A</span>hmed</h1>
+                <h2> Your complete web solution</h2>
+            </div>
+            <div class="social-icon">
+                <div class="social-item">
+                    <a href="https://facebook.com/hasnain.EEE11"><img src="{% static 'asset/img/facebook.png' %}"> </a>
+                </div>
+                <div class="social-item">
+                    <a href="https://twitter.com/Hasnain32517768"><img src="{% static 'asset/img/twitter.png' %}"> </a>
+                </div>
+                <div class="social-item">
+                    <a href="https://instragram.com/hasnain.eee11"><img src="{% static 'asset/img/instagram.png' %}">
+                    </a>
+                </div>
+            </div>
+            <p> Copyright @ 2020 Hasnain. All right reserved</p>
+        </div>
+    </section>
+    <!--End Footer-->
+    <script src="{% static 'asset/js/app.js' %}"></script>
+
+</body>
+
+</html>
